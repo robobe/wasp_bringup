@@ -1,31 +1,42 @@
 <?xml version="1.0"?>
 <sdf version="1.5">
   <model name="camera">
-    <pose>0 0 0 0 0 0</pose>
-    <link name="camera_link">
+    <pose>-0.158979 -0.04405 0.045074 0 1.578 0</pose>
+    <link name='link'>
       <inertial>
-        <mass>0.1</mass>
-        <inertia>          <!-- inertias are tricky to compute -->
-          <ixx>0.0000016667</ixx>          <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
-          <ixy>0.0</ixy>          <!-- for a box: ixy = 0 -->
-          <ixz>0.0</ixz>          <!-- for a box: ixz = 0 -->
-          <iyy>0.0000016667</iyy>          <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
-          <iyz>0.0</iyz>          <!-- for a box: iyz = 0 -->
-          <izz>0.0000016667</izz>          <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>4.15e-6</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.407e-6</iyy>
+          <iyz>0</iyz>
+          <izz>2.407e-6</izz>
         </inertia>
       </inertial>
-      <visual name="camera_visual">
+      <collision name='collision'>
         <geometry>
           <box>
             <size>0.01 0.01 0.01</size>
           </box>
         </geometry>
-        <material>
-          <script>
-            <uri>file://media/materials/scripts/kitchen.material</uri>
-            <name>Gazebo/Blue</name>
-          </script>
-        </material>
+        <max_contacts>10</max_contacts>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <bounce/>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
       </visual>
       <sensor type="camera" name="sensor_name">
         <always_on>1</always_on>
@@ -43,14 +54,14 @@
             <far>100</far>
           </clip>
         </camera>
-        <plugin name="plugin_name" filename="libgazebo_ros_camera.so">
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
           <!-- <ros>
                     <namespace>custom_camera_ns</namespace>
                     <remapping>image_raw:=custom_img</remapping>
                     <remapping>camera_info:=custom_info</remapping>
                   </ros> -->
           <camera_name>camera</camera_name>
-          <frame_name>camera_link</frame_name>
+          <frame_name>camera_link_optical</frame_name>
         </plugin>
       </sensor>
     </link>
