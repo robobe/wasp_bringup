@@ -86,7 +86,7 @@
 
     <model name="iris_demo">
       <include>
-        <uri>model://iris_ardupilot</uri>
+        <uri>model://iris_fpv_cam</uri>
       </include>
     </model>
 

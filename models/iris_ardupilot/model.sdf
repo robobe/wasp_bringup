@@ -5,7 +5,7 @@
       <uri>model://iris_with_standoffs</uri>
     </include>
 
-    <include>
+    <!-- <include>
       <uri>model://camera</uri>
     </include>
 
@@ -20,7 +20,7 @@
           <lower>0</lower>
         </limit>
       </axis>
-    </joint>
+    </joint> -->
 
     <!-- plugins -->
     <plugin name="rotor_0_blade_1" filename="libLiftDragPlugin.so">
