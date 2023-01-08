@@ -86,7 +86,9 @@
 
     <model name="iris_demo">
       <include>
-        <uri>model://iris_fpv_cam</uri>
+        <uri>model://iris_rangefinder</uri>
+        <!-- <uri>model://iris_fpv_cam</uri> -->
+        
       </include>
     </model>
 
