@@ -5,6 +5,8 @@
 - Send `DISTANCE_SENSOR` mavlink message
 - Try to read RANGEFINDER `message #173` from `http://mavlink.io/en/messages/ardupilotmega.html`
 
+![](docs/images/gazebo_sitl_mavproxy_graph_qgc.png)
+
 ## How to run
 ### gazebo
 ```bash title="gazebo"
